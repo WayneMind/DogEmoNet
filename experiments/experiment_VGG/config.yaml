@@ -1,0 +1,38 @@
+# 数据集的路径
+data:
+  train_path: "data/train"
+  val_path: "data/val"
+  test_path: "data/test"
+  num_classes: 3
+
+# 模型相关的超参数
+model:
+  architecture: "VGG"
+  pretrained: true
+  num_layers: 16
+  dropout_rate: 0.5
+  num_ftrs: 4096
+
+# 训练相关的超参数
+training:
+  batch_size: 64
+  num_epochs: 30
+  optimizer: "Adam"
+  learning_rate: 0.001
+  weight_decay: 0.01
+  scheduler: "ReduceLROnPlateau"
+  patience: 5
+  factor: 0.1
+  milestones: [20, 25]
+
+# 训练过程中的输出
+output:
+  log_dir: "experiments/experiment_VGG/logs"
+  model_dir: "experiments/experiment_VGG/models"
+  result_dir: "experiments/experiment_VGG/results"
+
+# 其他超参数
+misc:
+  seed: 42
+  num_workers: 4
+  use_gpu: true

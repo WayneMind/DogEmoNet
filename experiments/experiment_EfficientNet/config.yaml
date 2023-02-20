@@ -1,0 +1,37 @@
+# 数据集的路径
+data:
+  train_path: "data/train"
+  val_path: "data/val"
+  test_path: "data/test"
+  num_classes: 3
+
+# 模型相关的超参数
+model:
+  architecture: "EfficientNet"
+  pretrained: true
+  num_layers: "b0"
+  dropout_rate: 0.5
+  num_ftrs: 1280
+
+# 训练相关的超参数
+training:
+  batch_size: 64
+  num_epochs: 30
+  optimizer: "Adam"
+  learning_rate: 0.001
+  weight_decay: 0.01
+  scheduler: "StepLR"
+  step_size: 5
+  gamma: 0.1
+
+# 训练过程中的输出
+output:
+  log_dir: "experiments/experiment_EfficientNet/logs"
+  model_dir: "experiments/experiment_EfficientNet/models"
+  result_dir: "experiments/experiment_EfficientNet/results"
+
+# 其他超参数
+misc:
+  seed: 42
+  num_workers: 4
+  use_gpu: true
